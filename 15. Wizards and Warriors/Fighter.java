@@ -49,6 +49,6 @@ class Wizard extends Fighter {
 
     @Override
     public int getDamagePoints(Fighter fighter) {
-        return fighter.isVulnerable() ? 12 : 3;
+        return this.hasSpellPrepared ? 12 : 3;
     }
 }
