@@ -32,7 +32,7 @@ public class LogLine {
     public String getOutputForShortLog() {
         LogLevel level = this.getLogLevel();
         String message = line.substring(line.indexOf(":") + 2);
-        int encoded = 0;
+        int encoded;
 
         switch (level) {
             case TRACE:
@@ -52,6 +52,9 @@ public class LogLine {
                 break;
             case FATAL:
                 encoded = 42;
+                break;
+            default:
+                encoded = 0;
                 break;
         }
         return encoded + ":" + message;
