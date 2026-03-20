@@ -2,6 +2,7 @@
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class AppointmentScheduler {
 
@@ -21,20 +22,21 @@ class AppointmentScheduler {
     }
 
     public boolean isAfternoonAppointment(LocalDateTime appointmentDate) {
-        throw new UnsupportedOperationException(
-            "Please implement the AppointmentScheduler.isAfternoonAppointment() method"
-        );
+        int hour = appointmentDate.getHour();
+        return hour >= 12 && hour < 18;
     }
 
     public String getDescription(LocalDateTime appointmentDate) {
-        throw new UnsupportedOperationException(
-            "Please implement the AppointmentScheduler.getDescription() method"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+            "EEEE, MMMM d, yyyy, 'at' h:mm a"
         );
+
+        String formatted = appointmentDate.format(formatter);
+        return "You have an appointment on " + formatted + ".";
     }
 
     public LocalDate getAnniversaryDate() {
-        throw new UnsupportedOperationException(
-            "Please implement the AppointmentScheduler.getAnniversaryDate() method"
-        );
+        int currentYear = LocalDate.now().getYear();
+        return LocalDate.of(currentYear, 9, 15);
     }
 }
