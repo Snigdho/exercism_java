@@ -11,11 +11,34 @@ public class GameMaster {
         );
     }
 
-    // TODO: define a 'describe' method that returns a description of a Destination
+    public String describe(Destination d) {
+        return String.format(
+            "You've arrived at %s, which has %d inhabitants.",
+            d.getName(),
+            d.getInhabitants()
+        );
+    }
 
-    // TODO: define a 'describe' method that returns a description of a TravelMethod
+    public String describe(TravelMethod tm) {
+        String description = "You're traveling to your destination";
+        switch (tm) {
+            case WALKING:
+                description += " by walking.";
+                break;
+            case HORSEBACK:
+                description += " on horseback.";
+                break;
+        }
+        return description;
+    }
 
-    // TODO: define a 'describe' method that returns a description of a Character, Destination and TravelMethod
+    public String describe(Character c, Destination d, TravelMethod tm) {
+        return (
+            this.describe(c) + " " + this.describe(tm) + " " + this.describe(d)
+        );
+    }
 
-    // TODO: define a 'describe' method that returns a description of a Character and Destination
+    public String describe(Character c, Destination d) {
+        return this.describe(c, d, TravelMethod.WALKING);
+    }
 }
