@@ -1,3 +1,5 @@
+// https://exercism.org/tracks/java/exercises/armstrong-numbers
+
 class ArmstrongNumbers {
 
     boolean isArmstrongNumber(int numberToCheck) {
