@@ -26,9 +26,9 @@ class DnDCharacter {
     }
 
     int ability(List<Integer> scores) {
-        // Remove the lowest roll and sum the rest
-        scores.sort(Collections.reverseOrder());
-        return scores.get(0) + scores.get(1) + scores.get(2);
+        List<Integer> sortedScores = new ArrayList<>(scores); // make mutable copy
+        sortedScores.sort(Collections.reverseOrder());
+        return sortedScores.get(0) + sortedScores.get(1) + sortedScores.get(2);
     }
 
     List<Integer> rollDice() {
