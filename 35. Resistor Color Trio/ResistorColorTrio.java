@@ -1,3 +1,5 @@
+// https://exercism.org/tracks/java/exercises/resistor-color-trio
+
 import java.util.Map;
 
 class ResistorColorTrio {
