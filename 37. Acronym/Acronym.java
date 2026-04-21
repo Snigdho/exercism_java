@@ -1,4 +1,5 @@
 // https://exercism.org/tracks/java/exercises/acronym
+import java.lang.Character;
 
 class Acronym {
 
@@ -6,13 +7,16 @@ class Acronym {
 
     Acronym(String phrase) {
         String[] words = phrase.split("[ _-]+");
-        String result = "";
+        StringBuilder result = new StringBuilder();
+        // String result = ""; // also works with String
         for (String word : words) {
             if (!word.isEmpty()) {
-                result += Character.toUpperCase(word.charAt(0));
+                result.append(Character.toUpperCase(word.charAt(0)));
+                // result += Character.toUpperCase(word.charAt(0)); // for String
             }
         }
-        this.acronym = result;
+        this.acronym = result.toString();
+        // this.acronym = result;
     }
 
     String get() {
